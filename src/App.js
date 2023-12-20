@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 
@@ -10,10 +10,23 @@ export default function App() {
   // total, setTotal => initial value
   // let total = 0;
   const [total, setTotal] = useState(0);
-  const [variable, setVariable] = useState(0);
+
+  // useEffect
+  // component ilk render edildiğinde
+  // dep. listesindeki verilerin değiştiği anda tekrar tetiklenen yapıdır.
+  useEffect(
+    () => {
+      console.log(total);
+    },
+    [total]);
+
+  useEffect(() => {
+    console.log("use effect 2")
+  }, [])
+
 
   const increase = () => {
-    setTotal(total + 1);
+    setTotal(total + 1); // async
   }
 
   const decrease = () => {
