@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 
@@ -5,15 +6,29 @@ import './App.css';
 // HTML'de keywordün ismini değiştirmek
 // class => className
 export default function App() {
+  // react hooks
+  // total, setTotal => initial value
+  // let total = 0;
+  const [total, setTotal] = useState(0);
+  const [variable, setVariable] = useState(0);
+
+  const increase = () => {
+    setTotal(total + 1);
+  }
+
+  const decrease = () => {
+    setTotal(total - 1);
+  }
+
   return (
     <>
       <div>
-        <p>Merhaba</p>
+        <p>{total}</p>
       </div>
       <div>
-        <p>Merhaba 2</p>
+        <button onClick={increase}>Artır</button>
+        <button onClick={decrease}>Azalt</button>
       </div>
     </>
   );
 }
-
