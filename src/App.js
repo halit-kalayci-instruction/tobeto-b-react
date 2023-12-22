@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Navbar from './Navbar';
-import ProductCard from './ProductCard';
+import Navbar from './components/Navbar/Navbar';
+import ProductCard from './components/ProductCard/ProductCard';
+
 
 
 // JSX => HTML + JS
@@ -78,7 +79,7 @@ export default function App() {
         </ul>
       </div>
 
-      <ProductCard name="Laptop" price={5000} />
+      <ProductCard name="Laptop" classes="yellow-border" price={5000} />
       <ProductCard name="Mouse" price={300} />
       <ProductCard name="Klavye (Blue Switch)" price={200} />
     </>

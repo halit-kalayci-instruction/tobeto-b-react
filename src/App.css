@@ -10,3 +10,6 @@ div{
 .product-card>img {
   width:125px;
 }
+.yellow-border{
+  border-color: yellow;
+}
