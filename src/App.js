@@ -12,6 +12,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Homepage />}></Route>
       <Route path="/products" element={<Products />}></Route>
+      <Route path="*" element={<div>Not found</div>}></Route>
     </Routes>
   </BrowserRouter>
 
