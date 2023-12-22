@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Navbar from './Navbar';
 
 
 // JSX => HTML + JS
@@ -48,8 +49,13 @@ export default function App() {
   const removeActivity = (activity) => {
     setActivityList(activityList.filter(i => i !== activity));
   }
+  let id = 1;
   return (
     <>
+      <Navbar name="halit" id={id} />
+      {/* <Navbar>
+        <div>Merhaba</div>
+      </Navbar> */}
       <div>
         <p>{total}</p>
       </div>
