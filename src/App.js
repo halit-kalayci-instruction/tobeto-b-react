@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './Navbar';
+import ProductCard from './ProductCard';
 
 
 // JSX => HTML + JS
@@ -49,10 +50,12 @@ export default function App() {
   const removeActivity = (activity) => {
     setActivityList(activityList.filter(i => i !== activity));
   }
-  let id = 1;
+
+
+
   return (
     <>
-      <Navbar name="halit" id={id} />
+      <Navbar name="halit" />
       {/* <Navbar>
         <div>Merhaba</div>
       </Navbar> */}
@@ -74,6 +77,10 @@ export default function App() {
             <li key={element}>{element} <button onClick={() => { removeActivity(element) }}>X</button></li>)}
         </ul>
       </div>
+
+      <ProductCard name="Laptop" price={5000} />
+      <ProductCard name="Mouse" price={300} />
+      <ProductCard name="Klavye (Blue Switch)" price={200} />
     </>
   );
 }
