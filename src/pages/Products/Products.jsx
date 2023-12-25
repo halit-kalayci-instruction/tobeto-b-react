@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import ProductCard from "../../components/ProductCard/ProductCard";
 export default function Products() {
 	// verileri çek
 	// maple
@@ -17,23 +18,11 @@ export default function Products() {
 
 	// responsive?
 	return (
-		<div className="container mt-5">
+		<div className="container mt-0 mt-md-5">
 			<div className="row">
 				{products.map(product => (
-					<div className="col-3 mb-3">
-						<div class="card">
-							<img src="..." class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">
-									Some quick example text to build on the card title and make up
-									the bulk of the card's content.
-								</p>
-								<a href="#" class="btn btn-primary">
-									Go somewhere
-								</a>
-							</div>
-						</div>
+					<div className="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+						<ProductCard product={product} />
 					</div>
 				))}
 			</div>
