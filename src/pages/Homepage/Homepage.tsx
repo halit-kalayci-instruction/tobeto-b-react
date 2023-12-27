@@ -2,6 +2,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import {GetAllProductsModel} from "../../models/responses/GetAllProductsModel";
 import {ProductModel} from "../../models/responses/ProductModel";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 type Props = {};
 
@@ -25,7 +26,9 @@ const Homepage = (props: Props) => {
 		<div className="container">
 			<div className="row">
 				{products.map(product => (
-					<div key={product.id} className="col-3"></div>
+					<div key={product.id} className="col-3">
+						<ProductCard product={product} />
+					</div>
 				))}
 			</div>
 		</div>
