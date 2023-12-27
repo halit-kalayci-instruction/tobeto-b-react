@@ -20,7 +20,7 @@ const ProductCard = (props: Props) => {
 				<h5 className="card-title">{props.product.title}</h5>
 				<p className="card-text">{props.product.description}</p>
 				<Link
-					to={"/products?id=" + props.product.id}
+					to={"/product-detail?id=" + props.product.id}
 					className="btn btn-primary"
 				>
 					Detail
