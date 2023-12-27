@@ -14,7 +14,7 @@ const Homepage = (props: Props) => {
 		axios
 			.get<GetAllProductsModel>("https://dummyjson.com/products")
 			.then(response => {
-				console.log(response.data.limit);
+				console.log(response.data);
 			});
 	};
 
