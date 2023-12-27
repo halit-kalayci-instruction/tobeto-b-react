@@ -14,6 +14,9 @@ const Homepage = (props: Props) => {
 		fetchProducts();
 	}, []);
 
+	// 1- Birden fazla noktada kullanılabilir
+	// 2- Sorumluluğun UI dosyası üzerinden kalkması
+	// 3- Ortak bi noktadan yönetebilmek için
 	const fetchProducts = () => {
 		let service: ProductService = new ProductService();
 		service.getAll().then(response => {
@@ -35,3 +38,8 @@ const Homepage = (props: Props) => {
 };
 
 export default Homepage;
+
+// Formik-Yup
+// Global State Management (Redux-Context API)
+// Interceptors
+// toastr, loader
