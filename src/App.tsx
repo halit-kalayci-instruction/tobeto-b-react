@@ -8,7 +8,7 @@ function App(): ReactElement {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Homepage />}></Route>
-				<Route path="/product-detail" element={<ProductDetail />}></Route>
+				<Route path="/product-detail/:id" element={<ProductDetail />}></Route>
 			</Routes>
 		</BrowserRouter>
 	);
