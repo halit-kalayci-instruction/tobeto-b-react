@@ -10,7 +10,7 @@ const AddProduct = (props: Props) => {
 		price: 0,
 		stock: 0,
 	};
-
+	// 2:15
 	return (
 		<div className="container mt-5">
 			<Formik
