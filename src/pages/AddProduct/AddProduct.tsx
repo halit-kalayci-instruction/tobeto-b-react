@@ -1,6 +1,7 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {number, object, string} from "yup";
 import FormikInput from "../../components/FormikInput/FormikInput";
+import {passwordValidator} from "../../utils/customValidations";
 
 type Props = {};
 
@@ -16,18 +17,15 @@ const AddProduct = (props: Props) => {
 		title: string()
 			.required("Başlık alanı zorunludur.")
 			.min(3, "Başlık alanı en az 3 karakter olmalıdır.")
-			.max(50),
+			.max(50)
+			.test(
+				"my-custom-rule",
+				"En az 1 büyük, 1 küçük harf ve 1 rakam içermelidir.",
+				passwordValidator,
+			),
 		description: string().required().min(5).max(300),
 		price: number().required().min(0),
-		stock: number()
-			.required()
-			.min(0)
-			.integer()
-			.test("my-custom-rule", "Deneme", (value, context) => {
-				return false;
-			}),
-
-		// 3:15
+		stock: number().required().min(0).integer(),
 	});
 
 	return (
