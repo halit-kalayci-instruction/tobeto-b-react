@@ -16,7 +16,7 @@ const FormikInput = (props: Props) => {
 				name={props.name}
 				type={props.type || "text"}
 				className="form-control"
-				placeHolder={props.placeHolder}
+				placeholder={props.placeHolder}
 			/>
 			<ErrorMessage name={props.name}>
 				{message => <span className="text-danger">{message}</span>}

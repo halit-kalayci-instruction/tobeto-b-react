@@ -19,7 +19,15 @@ const AddProduct = (props: Props) => {
 			.max(50),
 		description: string().required().min(5).max(300),
 		price: number().required().min(0),
-		stock: number().required().min(0).integer(),
+		stock: number()
+			.required()
+			.min(0)
+			.integer()
+			.test("my-custom-rule", "Deneme", (value, context) => {
+				return false;
+			}),
+
+		// 3:15
 	});
 
 	return (
