@@ -39,7 +39,7 @@ const Homepage = (props: Props) => {
 
 export default Homepage;
 
-// Formik-Yup
+// Formik-Yup CUMA!
 // Global State Management (Redux-Context API)
 // Interceptors
 // toastr, loader
