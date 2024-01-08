@@ -13,3 +13,6 @@ export const removeFromCart = (product: any) => {
 export const clearCart = () => {
 	return {type: "CLEAR_CART"};
 };
+
+// Redux-toolkit migration
+// Redux-thunk araştırma

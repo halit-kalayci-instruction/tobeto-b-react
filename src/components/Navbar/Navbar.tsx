@@ -50,6 +50,11 @@ const Navbar = (props: Props) => {
 								</Link>
 							</li>
 						)}
+						<li className="nav-item">
+							<Link className="nav-link" to={""}>
+								Sepetteki Ürün Toplamı : {cartState.cartItems.length}
+							</Link>
+						</li>
 					</ul>
 					<form className="d-flex" role="search">
 						<input
