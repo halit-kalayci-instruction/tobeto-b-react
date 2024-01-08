@@ -1,8 +1,13 @@
+import {useContext} from "react";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../contexts/AuthContext";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+	const authContext = useContext(AuthContext);
+	console.log(authContext);
+
 	return (
 		<nav
 			className="navbar bg-dark navbar-expand-lg bg-body-tertiary"
