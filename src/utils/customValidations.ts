@@ -10,3 +10,7 @@ export const passwordValidator = (
 		/[0-9]/.test(value)
 	);
 };
+// redux - context api
+
+// BE Heavy
+// FE Heavy

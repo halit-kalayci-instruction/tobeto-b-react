@@ -46,6 +46,14 @@ const AddProduct = (props: Props) => {
 					<FormikInput name="description" label="Ürün Açıklaması" />
 					<FormikInput name="price" label="Ürün Fiyatı" type="number" />
 					<FormikInput name="stock" label="Ürün Stok" />
+
+					<Field as="select">
+						<option>Opsiyon 1</option>
+						<option>Opsiyon 2</option>
+						<option>Opsiyon 3</option>
+						<option>Opsiyon 4</option>
+					</Field>
+
 					<button type="submit" className="btn btn-primary">
 						Kaydet
 					</button>
