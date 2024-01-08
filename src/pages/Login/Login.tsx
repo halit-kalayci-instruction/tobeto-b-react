@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+import {AuthContext} from "../../contexts/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 type Props = {};
 
 const Login = (props: Props) => {
+	const authContext: any = useContext(AuthContext);
+	const navigate = useNavigate();
+
 	return (
 		<div className="container mt-5">
 			<form>
@@ -36,7 +41,14 @@ const Login = (props: Props) => {
 					/>
 					<label className="form-check-label">Remember me</label>
 				</div>
-				<button className="btn btn-primary w-100 py-2" type="submit">
+				<button
+					onClick={() => {
+						authContext.setIsAuthenticated(true);
+						navigate("/");
+					}}
+					className="btn btn-primary w-100 py-2"
+					type="button"
+				>
 					Sign in
 				</button>
 				<p className="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
