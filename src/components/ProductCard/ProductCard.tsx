@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {ProductModel} from "../../models/responses/ProductModel";
 import {useDispatch} from "react-redux";
+import {addToCart} from "../../store/slices/cartSlice";
 
 type Props = {
 	product: ProductModel;
@@ -10,7 +11,11 @@ type Props = {
 // ? => Bir alanı nullable yapar
 // ! => Nullable alan içerisinden veri okurken null değilse kontrolü yapar.
 const ProductCard = (props: Props) => {
-	const addProductToCard = () => {};
+	const dispatch = useDispatch();
+
+	const addProductToCard = () => {
+		dispatch(addToCart(props.product));
+	};
 
 	return (
 		<div className="card">

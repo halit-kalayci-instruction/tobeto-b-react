@@ -1,11 +1,27 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {ProductModel} from "../../models/responses/ProductModel";
 
+interface CartItem {
+	product: ProductModel;
+	quantity: number;
+}
+// [ürün1,ürün2]
+// [{ürün1,adet}, {ürün2,adet}]
 const cartSlice = createSlice({
 	name: "cart",
-	initialState: {cartItems: [] as any[]},
+	initialState: {cartItems: [] as CartItem[]},
 	reducers: {
 		addToCart: (state, action) => {
-			state.cartItems.push(action.payload);
+			let existingItem = state.cartItems.find(
+				(i: CartItem) => i.product.id === action.payload.id,
+			);
+
+			if (existingItem) {
+				// sepette bu üründen var
+				existingItem.quantity++;
+			} else {
+				state.cartItems.push({product: action.payload, quantity: 1});
+			}
 		},
 		removeFromCart: (state, action) => {
 			state.cartItems = state.cartItems.filter(
@@ -18,3 +34,4 @@ const cartSlice = createSlice({
 	},
 });
 export const cartReducer = cartSlice.reducer;
+export const {addToCart, removeFromCart, clearCart} = cartSlice.actions;
