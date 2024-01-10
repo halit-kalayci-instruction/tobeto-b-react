@@ -5,7 +5,9 @@ export const AuthContext = createContext({}); // depo create
 
 // props.children => react tarafından oto. bu component tagleri arasına yazılan yapıyı taşır.
 export const AuthProvider = (props: any) => {
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [isAuthenticated, setIsAuthenticated] = useState(
+		localStorage.getItem("token") != null,
+	);
 
 	return (
 		<AuthContext.Provider value={{isAuthenticated, setIsAuthenticated}}>

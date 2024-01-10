@@ -45,6 +45,7 @@ const Login = (props: Props) => {
 					onClick={() => {
 						authContext.setIsAuthenticated(true);
 						navigate("/");
+						localStorage.setItem("token", "abc");
 					}}
 					className="btn btn-primary w-100 py-2"
 					type="button"
