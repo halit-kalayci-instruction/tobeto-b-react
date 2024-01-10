@@ -5,11 +5,15 @@ interface CartItem {
 	product: ProductModel;
 	quantity: number;
 }
+
 // [ürün1,ürün2]
 // [{ürün1,adet}, {ürün2,adet}]
 const cartSlice = createSlice({
 	name: "cart",
-	initialState: {cartItems: [] as CartItem[]},
+	initialState: {
+		//cartItems:localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")!) : [],
+		cartItems: (JSON.parse(localStorage.getItem("cart")!) || []) as CartItem[],
+	},
 	reducers: {
 		addToCart: (state, action) => {
 			let existingItem = state.cartItems.find(
@@ -22,14 +26,17 @@ const cartSlice = createSlice({
 			} else {
 				state.cartItems.push({product: action.payload, quantity: 1});
 			}
+			localStorage.setItem("cart", JSON.stringify(state.cartItems));
 		},
 		removeFromCart: (state, action) => {
 			state.cartItems = state.cartItems.filter(
 				(i: any) => i.id !== action.payload.id,
 			);
+			localStorage.setItem("cart", JSON.stringify(state.cartItems));
 		},
 		clearCart: state => {
 			state.cartItems = [];
+			localStorage.setItem("cart", JSON.stringify(state.cartItems));
 		},
 	},
 });

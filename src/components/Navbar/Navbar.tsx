@@ -1,4 +1,4 @@
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../contexts/AuthContext";
 import {useSelector} from "react-redux";
@@ -7,7 +7,17 @@ type Props = {};
 
 const Navbar = (props: Props) => {
 	const cartState = useSelector((state: any) => state.cart);
-	console.log(cartState);
+
+	// useEffect(() => {
+	// 	localStorage.setItem("token", "abc");
+	// 	localStorage.setItem("token", "abc123");
+	// 	let user = localStorage.getItem("user");
+	// 	let userObj = JSON.parse(user!);
+	// 	console.log(user);
+	// 	console.log(userObj);
+	// 	localStorage.removeItem("token");
+	// 	localStorage.clear();
+	// }, []);
 
 	const authContext: any = useContext(AuthContext);
 
