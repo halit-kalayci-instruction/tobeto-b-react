@@ -9,7 +9,7 @@ export const fetchProducts = createAsyncThunk(
 
 		if (
 			state.product.products.length > 0 &&
-			!(new Date().getTime() - state.product.lastFetch > 600000)
+			!(new Date().getTime() - state.product.lastFetch > 60000)
 		) {
 			return state.product.products;
 		}

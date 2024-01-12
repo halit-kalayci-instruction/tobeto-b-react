@@ -1,14 +1,14 @@
-import axios from "axios";
 import {GetAllProductsModel} from "../models/responses/GetAllProductsModel";
 import {ProductModel} from "../models/responses/ProductModel";
+import axiosInstance from "../utils/axiosInterceptors";
 
 class ProductService {
 	getAll() {
-		return axios.get<GetAllProductsModel>("https://dummyjson.com/products");
+		return axiosInstance.get<GetAllProductsModel>("products");
 	}
 
 	getById(id: number) {
-		return axios.get<ProductModel>("https://dummyjson.com/products/" + id);
+		return axiosInstance.get<ProductModel>("products/" + id);
 	}
 }
 
