@@ -6,6 +6,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductService from "../../services/ProductService";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProducts} from "../../store/slices/productSlice";
+import {AppDispatch} from "../../store/configureStore";
 
 type Props = {};
 
@@ -27,10 +28,12 @@ const Homepage = (props: Props) => {
 	// };
 
 	const productsState = useSelector((state: any) => state.product);
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	useEffect(() => {
-		dispatch(fetchProducts() as any);
+		dispatch(fetchProducts());
 	}, []);
+
+	//14:00
 	return (
 		<div className="container">
 			<div className="row">
