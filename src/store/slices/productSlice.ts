@@ -1,20 +1,35 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import ProductService from "../../services/ProductService";
+
+export const fetchProducts = createAsyncThunk(
+	"products/fetchProducts",
+	async () => {
+		const service: ProductService = new ProductService();
+		const response = await service.getAll();
+		return response.data.products;
+	},
+);
 
 const productSlice = createSlice({
 	name: "product",
 	initialState: {loading: "initial", products: [] as any[]},
-	reducers: {
-		getAll: state => {
-			let service: ProductService = new ProductService();
+	reducers: {},
+	extraReducers: builder => {
+		builder.addCase(fetchProducts.pending, state => {
+			console.log("İstek atılıyo..");
 			state.loading = "loading";
-			service.getAll().then(response => {
-				state.loading = "loaded";
-				state.products = response.data.products;
-			});
-		},
+		});
+		builder.addCase(fetchProducts.fulfilled, (state, action) => {
+			console.log("Cevap geldi..", action);
+			state.loading = "loaded";
+			state.products = action.payload;
+		});
+		builder.addCase(fetchProducts.rejected, state => {
+			console.log("Hata geldi..");
+			state.loading = "error";
+		});
 	},
 });
 
 export const productReducer = productSlice.reducer;
-export const {getAll} = productSlice.actions;
+export const {} = productSlice.actions;

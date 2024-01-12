@@ -5,7 +5,7 @@ import {ProductModel} from "../../models/responses/ProductModel";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductService from "../../services/ProductService";
 import {useDispatch, useSelector} from "react-redux";
-import {getAll} from "../../store/slices/productSlice";
+import {fetchProducts} from "../../store/slices/productSlice";
 
 type Props = {};
 
@@ -29,7 +29,7 @@ const Homepage = (props: Props) => {
 	const productsState = useSelector((state: any) => state.product);
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(getAll());
+		dispatch(fetchProducts() as any);
 	}, []);
 	return (
 		<div className="container">
