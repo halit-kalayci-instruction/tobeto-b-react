@@ -21,6 +21,12 @@ axiosInstance.interceptors.response.use(
 		return response;
 	},
 	error => {
+		// switch (error.data.error) {
+		// 	case "Validation failed":
+		// 		break;
+		// 	case "ResourceAlreadyExists":
+		// 		break;
+		// }
 		console.log(error);
 	},
 );
